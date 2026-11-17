@@ -33,6 +33,7 @@ public class FarmerDrones implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		LOGGER.info("asd");
 		ModBlockEntities.init();
 		ModEntityTypes.init();
 		ModComponents.init();
