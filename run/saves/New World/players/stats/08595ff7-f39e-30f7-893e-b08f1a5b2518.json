@@ -1,0 +1,21 @@
+{
+  "stats": {
+    "minecraft:picked_up": {
+      "farmer-drones:floppy_disk_blue": 1
+    },
+    "minecraft:custom": {
+      "minecraft:sprint_one_cm": 134,
+      "minecraft:time_since_rest": 619,
+      "minecraft:fall_one_cm": 225,
+      "minecraft:walk_one_cm": 465,
+      "minecraft:total_world_time": 694,
+      "minecraft:leave_game": 1,
+      "minecraft:fly_one_cm": 767,
+      "minecraft:interact_with_anvil": 2,
+      "minecraft:play_time": 619,
+      "minecraft:jump": 5,
+      "minecraft:time_since_death": 619
+    }
+  },
+  "DataVersion": 5023
+}

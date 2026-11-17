@@ -1,0 +1,28 @@
+{
+  "stats": {
+    "minecraft:used": {
+      "minecraft:firework_rocket": 557
+    },
+    "minecraft:custom": {
+      "minecraft:talked_to_villager": 4,
+      "minecraft:time_since_rest": 6031,
+      "minecraft:walk_one_cm": 3723,
+      "minecraft:leave_game": 1,
+      "minecraft:horse_one_cm": 82,
+      "minecraft:walk_under_water_one_cm": 1694,
+      "minecraft:damage_taken": 1580,
+      "minecraft:play_time": 10059,
+      "minecraft:jump": 33,
+      "minecraft:time_since_death": 6005,
+      "minecraft:aviate_one_cm": 1083978,
+      "minecraft:sprint_one_cm": 937,
+      "minecraft:fall_one_cm": 14174,
+      "minecraft:total_world_time": 10667,
+      "minecraft:fly_one_cm": 7357,
+      "minecraft:crouch_one_cm": 1,
+      "minecraft:sneak_time": 3,
+      "minecraft:deaths": 2
+    }
+  },
+  "DataVersion": 5023
+}

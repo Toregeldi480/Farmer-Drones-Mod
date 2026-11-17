@@ -1,0 +1,27 @@
+{
+  "stats": {
+    "minecraft:killed": {
+      "farmer-drones:farmer_drone": 3
+    },
+    "minecraft:used": {
+      "minecraft:sand": 27,
+      "minecraft:splash_potion": 49
+    },
+    "minecraft:custom": {
+      "minecraft:time_since_rest": 5142,
+      "minecraft:walk_one_cm": 4440,
+      "minecraft:leave_game": 2,
+      "minecraft:mob_kills": 3,
+      "minecraft:play_time": 5142,
+      "minecraft:damage_dealt": 246,
+      "minecraft:jump": 57,
+      "minecraft:time_since_death": 5142,
+      "minecraft:sprint_one_cm": 2886,
+      "minecraft:total_world_time": 5163,
+      "minecraft:fly_one_cm": 18799,
+      "minecraft:crouch_one_cm": 2364,
+      "minecraft:sneak_time": 889
+    }
+  },
+  "DataVersion": 5023
+}

@@ -1,0 +1,19 @@
+{
+  "stats": {
+    "minecraft:killed": {
+      "farmer-drones:farmer_drone": 1
+    },
+    "minecraft:custom": {
+      "minecraft:time_since_rest": 516,
+      "minecraft:total_world_time": 525,
+      "minecraft:leave_game": 1,
+      "minecraft:fly_one_cm": 12017,
+      "minecraft:mob_kills": 1,
+      "minecraft:sneak_time": 2,
+      "minecraft:play_time": 516,
+      "minecraft:damage_dealt": 60,
+      "minecraft:time_since_death": 516
+    }
+  },
+  "DataVersion": 5023
+}

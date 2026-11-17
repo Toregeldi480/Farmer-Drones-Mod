@@ -1,0 +1,17 @@
+{
+  "stats": {
+    "minecraft:used": {
+      "farmer-drones:laptop": 7
+    },
+    "minecraft:custom": {
+      "minecraft:time_since_rest": 242,
+      "minecraft:walk_one_cm": 603,
+      "minecraft:total_world_time": 252,
+      "minecraft:leave_game": 1,
+      "minecraft:play_time": 242,
+      "minecraft:jump": 11,
+      "minecraft:time_since_death": 242
+    }
+  },
+  "DataVersion": 5023
+}

@@ -1,0 +1,145 @@
+{
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:badlands": "2026-11-11 23:19:48 +0900",
+      "minecraft:beach": "2026-11-11 23:22:25 +0900",
+      "minecraft:dark_forest": "2026-11-11 23:22:01 +0900",
+      "minecraft:forest": "2026-11-11 23:22:32 +0900",
+      "minecraft:taiga": "2026-11-11 23:20:02 +0900",
+      "minecraft:mangrove_swamp": "2026-11-11 23:21:57 +0900",
+      "minecraft:sparse_jungle": "2026-11-11 23:24:01 +0900",
+      "minecraft:river": "2026-11-11 23:17:38 +0900",
+      "minecraft:eroded_badlands": "2026-11-11 23:17:51 +0900",
+      "minecraft:desert": "2026-11-11 23:17:46 +0900",
+      "minecraft:jungle": "2026-11-11 23:21:55 +0900",
+      "minecraft:swamp": "2026-11-11 23:21:59 +0900",
+      "minecraft:birch_forest": "2026-11-11 23:23:16 +0900",
+      "minecraft:windswept_hills": "2026-11-11 23:22:39 +0900",
+      "minecraft:savanna": "2026-11-11 23:17:11 +0900",
+      "minecraft:windswept_savanna": "2026-11-11 23:22:14 +0900",
+      "minecraft:plains": "2026-11-11 23:23:55 +0900"
+    },
+    "done": false
+  },
+  "minecraft:end/elytra": {
+    "criteria": {
+      "elytra": "2026-11-11 23:17:11 +0900"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/white_wool_slab": {
+    "criteria": {
+      "has_white_wool": "2026-11-11 23:17:11 +0900"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/white_wool_stairs": {
+    "criteria": {
+      "has_white_wool": "2026-11-11 23:17:11 +0900"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/chest": {
+    "criteria": {
+      "has_lots_of_items": "2026-11-11 23:17:11 +0900"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/crafting_table": {
+    "criteria": {
+      "unlock_right_away": "2026-11-11 23:17:11 +0900"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/painting": {
+    "criteria": {
+      "has_wool": "2026-11-11 23:17:11 +0900"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/white_banner": {
+    "criteria": {
+      "has_white_wool": "2026-11-11 23:17:11 +0900"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/white_bed": {
+    "criteria": {
+      "has_white_wool": "2026-11-11 23:17:11 +0900"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/white_carpet": {
+    "criteria": {
+      "has_white_wool": "2026-11-11 23:17:11 +0900"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/acacia_boat": {
+    "criteria": {
+      "in_water": "2026-11-11 23:20:53 +0900"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/bamboo_raft": {
+    "criteria": {
+      "in_water": "2026-11-11 23:20:53 +0900"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/birch_boat": {
+    "criteria": {
+      "in_water": "2026-11-11 23:20:53 +0900"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/cherry_boat": {
+    "criteria": {
+      "in_water": "2026-11-11 23:20:53 +0900"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/dark_oak_boat": {
+    "criteria": {
+      "in_water": "2026-11-11 23:20:53 +0900"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/jungle_boat": {
+    "criteria": {
+      "in_water": "2026-11-11 23:20:53 +0900"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/mangrove_boat": {
+    "criteria": {
+      "in_water": "2026-11-11 23:20:53 +0900"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/oak_boat": {
+    "criteria": {
+      "in_water": "2026-11-11 23:20:53 +0900"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/pale_oak_boat": {
+    "criteria": {
+      "in_water": "2026-11-11 23:20:53 +0900"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/poplar_boat": {
+    "criteria": {
+      "in_water": "2026-11-11 23:20:53 +0900"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/spruce_boat": {
+    "criteria": {
+      "in_water": "2026-11-11 23:20:53 +0900"
+    },
+    "done": true
+  },
+  "DataVersion": 5023
+}

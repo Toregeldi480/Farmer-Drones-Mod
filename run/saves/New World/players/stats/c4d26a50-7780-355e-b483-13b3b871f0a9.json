@@ -1,0 +1,20 @@
+{
+  "stats": {
+    "minecraft:custom": {
+      "minecraft:time_since_rest": 1773,
+      "minecraft:walk_one_cm": 2529,
+      "minecraft:total_world_time": 1790,
+      "minecraft:leave_game": 2,
+      "minecraft:fly_one_cm": 2724,
+      "minecraft:crouch_one_cm": 43,
+      "minecraft:sneak_time": 68,
+      "minecraft:play_time": 1773,
+      "minecraft:time_since_death": 1773
+    },
+    "minecraft:used": {
+      "minecraft:grass_block": 1,
+      "farmer-drones:laptop": 21
+    }
+  },
+  "DataVersion": 5023
+}

@@ -1,0 +1,9 @@
+{
+  "block.farmer-drones.laptop": "Laptop",
+  "creative-tab.farmer-drones.misc_tab": "Misc",
+  "item.farmer-drones.floppy_disk_blue": "Floppy Disk Blue",
+  "item.farmer-drones.floppy_disk_gray": "Floppy Disk Gray",
+  "item.farmer-drones.floppy_disk_pink": "Floppy Disk Pink",
+
+  "entity.farmer-drones.farmer_drone": "Farmer Drone"
+}

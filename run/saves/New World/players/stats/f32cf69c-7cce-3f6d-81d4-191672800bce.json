@@ -1,0 +1,32 @@
+{
+  "stats": {
+    "minecraft:picked_up": {
+      "farmer-drones:floppy_disk_blue": 1
+    },
+    "minecraft:dropped": {
+      "farmer-drones:floppy_disk_blue": 1
+    },
+    "minecraft:custom": {
+      "minecraft:time_since_rest": 1281,
+      "minecraft:walk_one_cm": 1965,
+      "minecraft:leave_game": 1,
+      "minecraft:mob_kills": 2,
+      "minecraft:walk_under_water_one_cm": 198,
+      "minecraft:play_time": 1281,
+      "minecraft:damage_dealt": 80,
+      "minecraft:jump": 4,
+      "minecraft:time_since_death": 1281,
+      "minecraft:drop": 1,
+      "minecraft:sprint_one_cm": 1489,
+      "minecraft:total_world_time": 2427,
+      "minecraft:fly_one_cm": 2245,
+      "minecraft:walk_on_water_one_cm": 354,
+      "minecraft:crouch_one_cm": 11,
+      "minecraft:sneak_time": 23
+    },
+    "minecraft:killed": {
+      "farmer-drones:farmer_drone": 2
+    }
+  },
+  "DataVersion": 5023
+}

@@ -1,0 +1,102 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"movement.move.air": {
+			"loop": true,
+			"animation_length": 1,
+			"bones": {
+				"root": {
+					"rotation": {
+						"0.0": {
+							"vector": ["60 * query.farmer_drones_velocity_x", 0, "60 * query.farmer_drones_velocity_z"]
+						},
+						"1.0": {
+							"vector": ["60 * query.farmer_drones_velocity_x", 0, "60 * query.farmer_drones_velocity_z"],
+							"easing": "easeInOutQuad"
+						}
+					}
+				},
+				"up_right_rotor": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.5": {
+							"vector": [0, -180, 0]
+						},
+						"1.0": {
+							"vector": [0, -360, 0]
+						}
+					}
+				},
+				"up_left_rotor": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.5": {
+							"vector": [0, 180, 0]
+						},
+						"1.0": {
+							"vector": [0, 360, 0]
+						}
+					}
+				},
+				"bottom_left_rotor": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.5": {
+							"vector": [0, -180, 0]
+						},
+						"1.0": {
+							"vector": [0, -360, 0]
+						}
+					}
+				},
+				"bottom_right_rotor": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.5": {
+							"vector": [0, 180, 0]
+						},
+						"1.0": {
+							"vector": [0, 360, 0]
+						}
+					}
+				}
+			}
+		},
+		"movement.idle.air": {
+			"loop": true,
+			"animation_length": 1,
+			"bones": {
+				"root": {
+					"position": {
+						"0.0": {
+							"post": {
+								"vector": [0, 0, 0]
+							},
+							"lerp_mode": "catmullrom"
+						},
+						"0.25": {
+							"vector": [0, -0.5, 0],
+							"easing": "easeInOutSine"
+						},
+						"0.75": {
+							"vector": [0, 0.5, 0],
+							"easing": "easeInOutSine"
+						},
+						"1.0": {
+							"vector": [0, 0, 0],
+							"easing": "linear"
+						}
+					}
+				}
+			}
+		}
+	}
+}

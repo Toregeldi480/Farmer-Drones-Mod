@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "rotation=0":  { "model": "farmer-drones:block/laptop", "y": 0 },
+    "rotation=1":  { "model": "farmer-drones:block/laptop", "y": 0 },
+    "rotation=2":  { "model": "farmer-drones:block/laptop_angled", "y": 0 },
+    "rotation=3":  { "model": "farmer-drones:block/laptop_angled", "y": 0 },
+    "rotation=4":  { "model": "farmer-drones:block/laptop", "y": 90 },
+    "rotation=5":  { "model": "farmer-drones:block/laptop", "y": 90 },
+    "rotation=6":  { "model": "farmer-drones:block/laptop_angled", "y": 90 },
+    "rotation=7":  { "model": "farmer-drones:block/laptop_angled", "y": 90 },
+    "rotation=8":  { "model": "farmer-drones:block/laptop", "y": 180 },
+    "rotation=9":  { "model": "farmer-drones:block/laptop", "y": 180 },
+    "rotation=10": { "model": "farmer-drones:block/laptop_angled", "y": 180 },
+    "rotation=11": { "model": "farmer-drones:block/laptop_angled", "y": 180 },
+    "rotation=12": { "model": "farmer-drones:block/laptop", "y": 270 },
+    "rotation=13": { "model": "farmer-drones:block/laptop", "y": 270 },
+    "rotation=14": { "model": "farmer-drones:block/laptop_angled", "y": 270 },
+    "rotation=15": { "model": "farmer-drones:block/laptop_angled", "y": 270 }
+  }
+}

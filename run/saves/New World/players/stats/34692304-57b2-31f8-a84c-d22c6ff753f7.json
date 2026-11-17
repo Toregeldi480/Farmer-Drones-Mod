@@ -1,0 +1,31 @@
+{
+  "stats": {
+    "minecraft:dropped": {
+      "minecraft:leaf_litter": 2
+    },
+    "minecraft:custom": {
+      "minecraft:time_since_rest": 744,
+      "minecraft:walk_one_cm": 145,
+      "minecraft:total_world_time": 754,
+      "minecraft:leave_game": 1,
+      "minecraft:fly_one_cm": 7524,
+      "minecraft:mob_kills": 2,
+      "minecraft:sneak_time": 3,
+      "minecraft:play_time": 744,
+      "minecraft:damage_dealt": 132,
+      "minecraft:jump": 1,
+      "minecraft:time_since_death": 744,
+      "minecraft:drop": 2
+    },
+    "minecraft:killed": {
+      "farmer-drones:farmer_drone": 2
+    },
+    "minecraft:used": {
+      "minecraft:splash_potion": 7
+    },
+    "minecraft:picked_up": {
+      "minecraft:leaf_litter": 2
+    }
+  },
+  "DataVersion": 5023
+}

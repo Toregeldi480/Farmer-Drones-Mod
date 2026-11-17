@@ -1,0 +1,26 @@
+{
+  "stats": {
+    "minecraft:mined": {
+      "minecraft:short_grass": 2,
+      "farmer-drones:laptop": 1
+    },
+    "minecraft:dropped": {
+      "minecraft:wheat_seeds": 1
+    },
+    "minecraft:custom": {
+      "minecraft:time_since_rest": 763,
+      "minecraft:walk_one_cm": 1002,
+      "minecraft:total_world_time": 940,
+      "minecraft:leave_game": 2,
+      "minecraft:play_time": 763,
+      "minecraft:jump": 1,
+      "minecraft:time_since_death": 763,
+      "minecraft:drop": 1
+    },
+    "minecraft:picked_up": {
+      "minecraft:wheat_seeds": 1,
+      "farmer-drones:floppy_disk_blue": 2
+    }
+  },
+  "DataVersion": 5023
+}

@@ -1,0 +1,21 @@
+{
+  "stats": {
+    "minecraft:used": {
+      "farmer-drones:laptop": 5,
+      "minecraft:skeleton_skull": 8
+    },
+    "minecraft:custom": {
+      "minecraft:sprint_one_cm": 13,
+      "minecraft:time_since_rest": 1212,
+      "minecraft:walk_one_cm": 3173,
+      "minecraft:total_world_time": 3488,
+      "minecraft:leave_game": 1,
+      "minecraft:crouch_one_cm": 114,
+      "minecraft:sneak_time": 24,
+      "minecraft:play_time": 1212,
+      "minecraft:jump": 12,
+      "minecraft:time_since_death": 1212
+    }
+  },
+  "DataVersion": 5023
+}

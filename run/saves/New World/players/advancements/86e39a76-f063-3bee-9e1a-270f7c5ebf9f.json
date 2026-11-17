@@ -1,0 +1,63 @@
+{
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:savanna": "2026-11-15 23:58:27 +0900"
+    },
+    "done": false
+  },
+  "minecraft:end/elytra": {
+    "criteria": {
+      "elytra": "2026-11-15 23:58:26 +0900"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/white_wool_slab": {
+    "criteria": {
+      "has_white_wool": "2026-11-15 23:58:26 +0900"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/white_wool_stairs": {
+    "criteria": {
+      "has_white_wool": "2026-11-15 23:58:26 +0900"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/chest": {
+    "criteria": {
+      "has_lots_of_items": "2026-11-15 23:58:26 +0900"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/crafting_table": {
+    "criteria": {
+      "unlock_right_away": "2026-11-15 23:58:27 +0900"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/painting": {
+    "criteria": {
+      "has_wool": "2026-11-15 23:58:26 +0900"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/white_banner": {
+    "criteria": {
+      "has_white_wool": "2026-11-15 23:58:26 +0900"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/white_bed": {
+    "criteria": {
+      "has_white_wool": "2026-11-15 23:58:26 +0900"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/white_carpet": {
+    "criteria": {
+      "has_white_wool": "2026-11-15 23:58:26 +0900"
+    },
+    "done": true
+  },
+  "DataVersion": 5023
+}
