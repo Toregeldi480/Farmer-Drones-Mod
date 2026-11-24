@@ -14,12 +14,4 @@ public class FarmerDroneRenderer<R extends EntityRenderState & GeoRenderState> e
     public FarmerDroneRenderer(EntityRendererProvider.Context context, EntityType<FarmerDrone> entityType) {
         super(context, entityType);
     }
-
-    @Override
-    public void addRenderData(FarmerDrone animatable, @Nullable Void relatedObject, R renderState, float partialTick) {
-        super.addRenderData(animatable, relatedObject, renderState, partialTick);
-
-        Vec3 velocity = animatable.getLocalVelocity();
-        MathParser.setVariable("query.farmer_drones_velocity_x", state -> velocity.x);
-    }
 }

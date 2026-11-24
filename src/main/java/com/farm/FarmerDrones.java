@@ -1,13 +1,11 @@
 package com.farm;
 
-import com.farm.entity.FarmerDrone;
 import com.farm.init.*;
 import com.farm.networking.CloseLaptopDiskMenuServerBoundPayload;
 import com.farm.networking.OpenLaptopDiskMenuServerBoundPayload;
 import com.farm.init.ModItemTags;
 import com.farm.networking.SetLaptopDiskMenuSourceServerBoundPayload;
 import com.farm.world.inventory.LaptopDiskMenu;
-import com.geckolib.loading.math.MolangQueries;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.menu.v1.ExtendedMenuProvider;
@@ -33,7 +31,6 @@ public class FarmerDrones implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		LOGGER.info("asd");
 		ModBlockEntities.init();
 		ModEntityTypes.init();
 		ModComponents.init();
@@ -42,9 +39,6 @@ public class FarmerDrones implements ModInitializer {
 		ModItemGroups.init();
 		ModItemTags.init();
 		ModMenuTypes.init();
-
-		MolangQueries.<FarmerDrone>setActorVariable("query.farmer_drones_velocity_x", actor -> actor.animatable().getLocalVelocity().x);
-		MolangQueries.<FarmerDrone>setActorVariable("query.farmer_drones_velocity_z", actor -> actor.animatable().getLocalVelocity().z);
 
 		PayloadTypeRegistry.serverboundPlay().register(OpenLaptopDiskMenuServerBoundPayload.TYPE, OpenLaptopDiskMenuServerBoundPayload.CODEC);
 		PayloadTypeRegistry.serverboundPlay().register(CloseLaptopDiskMenuServerBoundPayload.TYPE, CloseLaptopDiskMenuServerBoundPayload.CODEC);

@@ -14,7 +14,7 @@ import net.minecraft.world.entity.MobCategory;
 public class ModEntityTypes {
     public static final EntityType<FarmerDrone> FARMER_DRONE = register(
             ResourceKey.create(Registries.ENTITY_TYPE, FarmerDrones.id("farmer_drone")),
-            EntityType.Builder.of(FarmerDrone::new, MobCategory.MISC).sized(1.0f, 1.0f).spawnDimensionsScale(1.0f).eyeHeight(0.5f)
+            EntityType.Builder.of(FarmerDrone::new, MobCategory.MISC).sized(0.9f, 0.9f).spawnDimensionsScale(1.0f).eyeHeight(0.5f)
     );
 
     private static <T extends Entity> EntityType<T> register(ResourceKey<EntityType<?>> key, EntityType.Builder<T> builder) {
