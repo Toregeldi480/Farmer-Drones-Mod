@@ -25,7 +25,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.AirBlock;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
@@ -55,7 +54,7 @@ public class FarmerDrone extends LivingEntity implements GeoEntity, InventoryCar
     private Movement movement = Movement.NONE;
 
     // TODO: custom inventory
-    private SimpleContainer inventory = new SimpleContainer(1);
+    private final SimpleContainer inventory = new SimpleContainer(1);
 
     public FarmerDrone(EntityType<? extends LivingEntity> type, Level level) {
         super(type, level);
@@ -98,15 +97,15 @@ public class FarmerDrone extends LivingEntity implements GeoEntity, InventoryCar
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new AnimationController<>("movement", test -> {
             if (this.action == Action.MOVE) {
-                switch (this.movement) {
-                    case Movement.UP: return test.setAndContinue(UP);
-                    case Movement.DOWN: return test.setAndContinue(DOWN);
-                    case Movement.FORWARD: return test.setAndContinue(FORWARD);
-                    case Movement.BACKWARD: return test.setAndContinue(BACKWARD);
-                    case Movement.RIGHT: return test.setAndContinue(RIGHT);
-                    case Movement.LEFT: return test.setAndContinue(LEFT);
-                    default: return PlayState.STOP;
-                }
+                return switch (this.movement) {
+                    case Movement.UP -> test.setAndContinue(UP);
+                    case Movement.DOWN -> test.setAndContinue(DOWN);
+                    case Movement.FORWARD -> test.setAndContinue(FORWARD);
+                    case Movement.BACKWARD -> test.setAndContinue(BACKWARD);
+                    case Movement.RIGHT -> test.setAndContinue(RIGHT);
+                    case Movement.LEFT -> test.setAndContinue(LEFT);
+                    default -> PlayState.STOP;
+                };
             } else if (this.action == Action.IDLE) {
                 return test.setAndContinue(IDLE);
             } else if (this.action == Action.FLOAT) {
@@ -192,8 +191,8 @@ public class FarmerDrone extends LivingEntity implements GeoEntity, InventoryCar
     }
 
     private Vec3 getVectorRelativeToRot(Vec3 input) {
-        float sin = Mth.sin((double)(this.getYRot() * ((float)Math.PI / 180F)));
-        float cos = Mth.cos((double)(this.getYRot() * ((float)Math.PI / 180F)));
+        float sin = Mth.sin(this.getYRot() * ((float)Math.PI / 180.0f));
+        float cos = Mth.cos(this.getYRot() * ((float)Math.PI / 180.0f));
         return new Vec3(input.x * (double)cos - input.z * (double)sin, input.y, input.z * (double)cos + input.x * (double)sin);
     }
 
@@ -296,6 +295,6 @@ public class FarmerDrone extends LivingEntity implements GeoEntity, InventoryCar
     }
 
     enum Movement {
-        NONE, UP, DOWN, FORWARD, BACKWARD, RIGHT, LEFT;
+        NONE, UP, DOWN, FORWARD, BACKWARD, RIGHT, LEFT
     }
 }

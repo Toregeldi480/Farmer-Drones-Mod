@@ -9,7 +9,7 @@ public enum ResponseCode {
     UNKNOWN_ERROR(14);
 
     private final int value;
-    private ResponseCode(int value) {
+    ResponseCode(int value) {
         this.value = value;
     }
 

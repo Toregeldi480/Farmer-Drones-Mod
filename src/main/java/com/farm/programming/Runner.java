@@ -1,6 +1,5 @@
 package com.farm.programming;
 
-import com.farm.FarmerDrones;
 import com.farm.entity.FarmerDrone;
 
 import java.util.ArrayList;
@@ -38,7 +37,7 @@ public class Runner {
         case "ROT":
           statusCode = handleArgCountError(args, 2);
           if (statusCode != 0) return statusCode;
-          statusCode = handleTypeError(new String[]{args[1]}, (int) 0);
+          statusCode = handleTypeError(new String[]{args[1]}, Integer.class);
           if (statusCode != 0) return statusCode;
           if (Integer.parseInt(args[1]) % 11.25f != 0) return ResponseCode.UNKNOWN_ERROR.getValue();
           this.drone.rotate(Integer.parseInt(args[1]));
