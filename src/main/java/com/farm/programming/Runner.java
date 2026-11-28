@@ -5,7 +5,7 @@ import com.farm.entity.FarmerDrone;
 import java.util.ArrayList;
 import java.util.List;
 
-// IDEA: Batch running (e.g. one Runner instance, List<FarmerDrone>)
+// TODO: ComputerBlock -> one Runner instance, List<FarmerDrone>
 public class Runner {
   private final FarmerDrone drone;
   private String source;
@@ -26,15 +26,13 @@ public class Runner {
       int statusCode;
 
       switch (args[0]) {
-        case "MOV":
-          statusCode = handleArgCountError(args, 5);
+        case "MOVE":
+          statusCode = handleArgCountError(args, 3);
           if (statusCode != 0) return statusCode;
-          statusCode = handleTypeError(new String[]{args[1], args[2], args[3]}, Float.class);
+          statusCode = handleTypeError(new String[]{args[2]}, Integer.class);
           if (statusCode != 0) return statusCode;
-          statusCode = handleTypeError(new String[]{args[4]}, Integer.class);
-          if (statusCode != 0) return statusCode;
-          this.drone.move(Float.parseFloat(args[1]), Float.parseFloat(args[2]), Float.parseFloat(args[3]), Integer.parseInt(args[4]));
-        case "ROT":
+          this.drone.move(args[1], Integer.parseInt(args[2]));
+        case "ROTATE":
           statusCode = handleArgCountError(args, 2);
           if (statusCode != 0) return statusCode;
           statusCode = handleTypeError(new String[]{args[1]}, Integer.class);

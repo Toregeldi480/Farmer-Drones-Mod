@@ -5,6 +5,7 @@ import net.minecraft.references.BlockItemId;
 import net.minecraft.resources.Identifier;
 
 public class ModBlockItemIds {
+    public static final BlockItemId SERVER = create("server");
     public static final BlockItemId LAPTOP = create("laptop");
 
     private static BlockItemId create(String name) {

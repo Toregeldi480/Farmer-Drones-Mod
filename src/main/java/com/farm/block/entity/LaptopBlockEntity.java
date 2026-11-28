@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
+import org.jspecify.annotations.NullMarked;
 import org.jspecify.annotations.Nullable;
 
 import java.nio.file.Files;
@@ -28,18 +29,24 @@ public class LaptopBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     @Override
+    @NullMarked
     protected void saveAdditional(ValueOutput output) {
         super.saveAdditional(output);
     }
 
     @Override
+    @NullMarked
     protected void loadAdditional(ValueInput input) {
         super.loadAdditional(input);
     }
 
     @Override
-    public @Nullable AbstractContainerMenu createMenu(int containerId, Inventory inventory, Player player) {
-        return new LaptopDiskMenu(containerId, inventory, getBlockPos(),ContainerLevelAccess.create(level, getBlockPos()));
+    @Nullable
+    public AbstractContainerMenu createMenu(int containerId, Inventory inventory, Player player) {
+        if (this.level != null) {
+            return new LaptopDiskMenu(containerId, inventory, getBlockPos(),ContainerLevelAccess.create(level, getBlockPos()));
+        }
+        return null;
     }
 
     public Path getEditorPath() {
@@ -79,6 +86,7 @@ public class LaptopBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     @Override
+    @NullMarked
     public Component getDisplayName() {
         return Component.empty();
     }

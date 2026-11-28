@@ -12,6 +12,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jspecify.annotations.NullMarked;
 
 public class LaptopDiskMenu extends ItemCombinerMenu {
     private BlockPos blockPos;
@@ -41,17 +42,20 @@ public class LaptopDiskMenu extends ItemCombinerMenu {
     }
 
     @Override
+    @NullMarked
     public void slotsChanged(Container container) {
         super.slotsChanged(container);
         createResult();
     }
 
     @Override
+    @NullMarked
     protected void onTake(Player player, ItemStack carried) {
         this.inputSlots.setItem(0, ItemStack.EMPTY);
     }
 
     @Override
+    @NullMarked
     protected boolean isValidBlock(BlockState state) {
         return state.is(ModBlocks.LAPTOP);
     }

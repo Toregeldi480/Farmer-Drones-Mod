@@ -14,16 +14,12 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
-import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.block.state.properties.RotationSegment;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jspecify.annotations.NullMarked;
 import org.jspecify.annotations.Nullable;
-
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.StandardOpenOption;
 
 public class LaptopBlock extends BaseEntityBlock {
     public static final int MAX = RotationSegment.getMaxSegmentIndex();
@@ -36,32 +32,39 @@ public class LaptopBlock extends BaseEntityBlock {
         this.registerDefaultState(this.defaultBlockState().setValue(ROTATION, 0));
     }
 
+    @NullMarked
     protected VoxelShape getShape(final BlockState state, final BlockGetter level, final BlockPos pos, final CollisionContext context) {
         return SHAPE;
     }
 
+    @NullMarked
     protected VoxelShape getCollisionShape(final BlockState state, final BlockGetter level, final BlockPos pos, final CollisionContext context) {
         return SHAPE;
     }
 
+    @Nullable
     public BlockState getStateForPlacement(final BlockPlaceContext context) {
         return super.getStateForPlacement(context).setValue(ROTATION, RotationSegment.convertToSegment(context.getRotation()));
     }
 
+    @NullMarked
     protected BlockState rotate(final BlockState state, final Rotation rotation) {
         return state.setValue(ROTATION, rotation.rotate(state.getValue(ROTATION), ROTATIONS));
     }
 
+    @NullMarked
     protected BlockState mirror(final BlockState state, final Mirror mirror) {
         return state.setValue(ROTATION, mirror.mirror(state.getValue(ROTATION), ROTATIONS));
     }
 
+    @NullMarked
     protected void createBlockStateDefinition(final StateDefinition.Builder<Block, BlockState> builder) {
         super.createBlockStateDefinition(builder);
-        builder.add(new Property[]{ROTATION});
+        builder.add(ROTATION);
     }
 
     @Override
+    @NullMarked
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
         BlockEntity blockEntity = level.getBlockEntity(pos);
         if (blockEntity instanceof LaptopBlockEntity laptop) {
@@ -71,8 +74,8 @@ public class LaptopBlock extends BaseEntityBlock {
         return InteractionResult.PASS;
     }
 
-    @Nullable
     @Override
+    @NullMarked
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
         return new LaptopBlockEntity(pos, state);
     }

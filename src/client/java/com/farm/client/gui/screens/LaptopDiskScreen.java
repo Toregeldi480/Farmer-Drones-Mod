@@ -20,15 +20,13 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.jspecify.annotations.NullMarked;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 
 public class LaptopDiskScreen extends AbstractContainerScreen<LaptopDiskMenu> implements ContainerListener {
-    private static final Logger log = LoggerFactory.getLogger(LaptopDiskScreen.class);
     private LaptopDiskScreen.FileExplorerList explorer;
     private Button editTabButton;
     private StringWidget selectedPath;
@@ -73,36 +71,42 @@ public class LaptopDiskScreen extends AbstractContainerScreen<LaptopDiskMenu> im
     }
 
     @Override
+    @NullMarked
     protected void slotClicked(final Slot slot, final int slotId, final int buttonNum, final ContainerInput containerInput) {
         super.slotClicked(slot, slotId, buttonNum, containerInput);
     }
 
     @Override
+    @NullMarked
     public void extractSlot(final GuiGraphicsExtractor graphics, final Slot slot, final int mouseX, final int mouseY) {
         super.extractSlot(graphics, slot, mouseX, mouseY);
     }
 
+    @NullMarked
     public void extractRenderState(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY, final float a) {
         super.extractRenderState(graphics, mouseX, mouseY, a);
     }
 
+    @NullMarked
     public void extractBackground(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY, final float a) {
         super.extractBackground(graphics, mouseX, mouseY, a);
     }
 
     @Override
+    @NullMarked
     public void slotChanged(AbstractContainerMenu container, int slotIndex, ItemStack itemStack) {
 
     }
 
     @Override
+    @NullMarked
     public void dataChanged(AbstractContainerMenu container, int id, int value) {
 
     }
 
     public class FileExplorerList extends ObjectSelectionList<LaptopDiskScreen.FileExplorerList.Entry> {
-        private int width;
-        private Path currentFilePath;
+        private final int width;
+        private final Path currentFilePath;
 
         public FileExplorerList(final Minecraft minecraft, Path currentFilePath, List<Path> files, int width, int height, int x, int y, int itemHeight) {
             super(minecraft, width, height, y, itemHeight);
@@ -116,7 +120,7 @@ public class LaptopDiskScreen extends AbstractContainerScreen<LaptopDiskMenu> im
             }
 
             if (files != null) {
-                files.stream().filter(p -> Files.isDirectory(p)).forEach(resource -> {
+                files.stream().filter(Files::isDirectory).forEach(resource -> {
                     LaptopDiskScreen.FileExplorerList.Entry entry = new LaptopDiskScreen.FileExplorerList.Entry(resource.getFileName().toString() + "/", resource);
                     this.addEntry(entry);
                     if (this.currentFilePath != null && this.currentFilePath.equals(resource)) {
@@ -142,8 +146,8 @@ public class LaptopDiskScreen extends AbstractContainerScreen<LaptopDiskMenu> im
         }
 
         class Entry extends ObjectSelectionList.Entry<LaptopDiskScreen.FileExplorerList.Entry> {
-            private String filename;
-            private Path path;
+            private final String filename;
+            private final Path path;
 
             public Entry(String filename, Path path) {
                 super();
@@ -166,6 +170,7 @@ public class LaptopDiskScreen extends AbstractContainerScreen<LaptopDiskMenu> im
                 }
             }
 
+            @NullMarked
             public boolean mouseClicked(final MouseButtonEvent event, final boolean doubleClick) {
                 if (doubleClick) {
                     this.select();
@@ -189,6 +194,7 @@ public class LaptopDiskScreen extends AbstractContainerScreen<LaptopDiskMenu> im
             }
 
             @Override
+            @NullMarked
             public Component getNarration() {
                 return Component.literal("file");
             }

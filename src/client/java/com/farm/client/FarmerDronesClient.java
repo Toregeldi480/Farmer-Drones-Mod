@@ -1,6 +1,7 @@
 package com.farm.client;
 
 import com.farm.client.gui.screens.LaptopDiskScreen;
+import com.farm.client.gui.screens.ServerInventoryScreen;
 import com.farm.init.ModEntityTypes;
 import com.farm.init.ModMenuTypes;
 import com.geckolib.renderer.GeoEntityRenderer;
@@ -13,5 +14,6 @@ public class FarmerDronesClient implements ClientModInitializer {
 	public void onInitializeClient() {
 		EntityRenderers.register(ModEntityTypes.FARMER_DRONE, context -> new GeoEntityRenderer<>(context, ModEntityTypes.FARMER_DRONE));
 		MenuScreens.register(ModMenuTypes.LAPTOP_DISK, LaptopDiskScreen::new);
+		MenuScreens.register(ModMenuTypes.SERVER_INVENTORY, ServerInventoryScreen::new);
 	}
 }

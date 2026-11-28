@@ -5,6 +5,7 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.Identifier;
+import org.jspecify.annotations.NullMarked;
 
 public record CloseLaptopDiskMenuServerBoundPayload() implements CustomPacketPayload {
     public static final Identifier CLOSE_LAPTOP_DISK_MENU_PAYLOAD_ID = FarmerDrones.id("close_laptop_disk_menu");
@@ -14,6 +15,7 @@ public record CloseLaptopDiskMenuServerBoundPayload() implements CustomPacketPay
     );
 
     @Override
+    @NullMarked
     public CustomPacketPayload.Type<? extends CustomPacketPayload> type() {
         return TYPE;
     }

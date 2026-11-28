@@ -1,8 +1,5 @@
 package com.farm.entity;
 
-import com.farm.init.ModComponents;
-import com.farm.item.FloppyDisk;
-import com.farm.programming.Runner;
 import com.geckolib.animatable.GeoEntity;
 import com.geckolib.animatable.instance.AnimatableInstanceCache;
 import com.geckolib.animatable.manager.AnimatableManager;
@@ -11,7 +8,6 @@ import com.geckolib.animation.RawAnimation;
 import com.geckolib.animation.object.PlayState;
 import com.geckolib.util.GeckoLibUtil;
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.Component;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
@@ -29,6 +25,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
+import org.jspecify.annotations.NullMarked;
 import org.jspecify.annotations.Nullable;
 
 public class FarmerDrone extends LivingEntity implements GeoEntity, InventoryCarrier {
@@ -43,15 +40,13 @@ public class FarmerDrone extends LivingEntity implements GeoEntity, InventoryCar
     private static final RawAnimation LEFT = RawAnimation.begin().thenPlay("movement.left");
     private static final RawAnimation IDLE = RawAnimation.begin().thenPlay("movement.idle");
 
-    Runner runner = new Runner(this, "");
-    private String sourceCode = "";
-    private int line = 0;
     private int delayTicks = 0;
     private int actionTicks = 0;
     private int rotationInput = 0;
     private Vec3 movementInput = Vec3.ZERO;
     private Action action = Action.IDLE;
     private Movement movement = Movement.NONE;
+    private boolean isActive = false;
 
     // TODO: custom inventory
     private final SimpleContainer inventory = new SimpleContainer(1);
@@ -62,34 +57,16 @@ public class FarmerDrone extends LivingEntity implements GeoEntity, InventoryCar
     }
 
     @Override
+    @NullMarked
     public InteractionResult interact(Player player, InteractionHand hand, Vec3 location) {
         ItemStack heldItem = player.getItemInHand(hand);
-
-        if (heldItem.getItem() instanceof FloppyDisk) {
-            String source = heldItem.getOrDefault(ModComponents.DISK_SOURCE_CODE, "");
-            this.setSource(source);
-            this.line = 0;
-        }
-
-        // TODO: temporary triggers
-        if (heldItem.is(Items.GOLD_INGOT)) {
-            this.runner.setLoop(!this.runner.isLoop());
-        }
-
         if (heldItem.is(Items.LAPIS_LAZULI)) {
             Vec3 pos = this.position();
             this.setPos(Math.floor(pos.x) + 0.5f, Math.floor(pos.y), Math.floor(pos.z) + 0.5f);
         }
-
         if (heldItem.is(Items.DIAMOND)) {
-            boolean isRunning = this.runner.isRunning();
-            this.runner.setRunning(!isRunning);
-            this.delayTicks = 0;
-            if (!this.runner.isRunning()) this.stopAction();
-            player.sendOverlayMessage(Component.literal(isRunning ? "Stopping Code Execution" :
-                    (this.line == 0 ? "Starting Code Execution" : "Continue Code Execution From Line: " + this.line)));
+            this.setActive(!this.isActive());
         }
-
         return InteractionResult.SUCCESS;
     }
 
@@ -117,32 +94,21 @@ public class FarmerDrone extends LivingEntity implements GeoEntity, InventoryCar
     }
 
     @Override
+    @NullMarked
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return this.geoCache;
     }
 
+    // FIXME: no gravity logic needs fix
     @Override
     public void tick() {
         super.tick();
-        if (this.runner.isRunning()) {
+        if (this.isActive()) {
             this.setNoGravity(true);
-            this.runnerTick();
             this.movementTick();
             this.rotationTick();
         } else {
             this.setNoGravity(false);
-        }
-    }
-
-    private void runnerTick() {
-        if (this.actionTicks <= 0 && this.action == Action.IDLE && this.line < this.runner.getLineCount()) {
-            if (this.delayTicks-- <= 0) this.runner.execLine(this.line++);
-        }
-        if (this.actionTicks <= 0) {
-            if (this.line == this.runner.getLineCount()) {
-                this.runner.setRunning(this.runner.isLoop());
-                this.line = 0;
-            }
         }
     }
 
@@ -228,14 +194,10 @@ public class FarmerDrone extends LivingEntity implements GeoEntity, InventoryCar
 
     @Override
     protected void readAdditionalSaveData(ValueInput input) {
-        this.sourceCode = input.getStringOr("SourceCode", "");
-        this.line = input.getIntOr("Line", 0);
         this.delayTicks = input.getIntOr("DelayTicks", 0);
         this.actionTicks = input.getIntOr("ActionTicks", 0);
         this.rotationInput = input.getIntOr("RotationInput", 0);
         this.movementInput = new Vec3(input.getDoubleOr("MovementInputX", 0), input.getDoubleOr("MovementInputY", 0), input.getDoubleOr("MovementInputZ", 0));
-        this.runner = new Runner(this, sourceCode);
-        this.runner.setRunning(input.getBooleanOr("IsRunning", false));
         this.action = Action.valueOf(input.getStringOr("Action", "IDLE"));
         this.movement = Movement.valueOf(input.getStringOr("Movement", "NONE"));
         super.readAdditionalSaveData(input);
@@ -243,9 +205,6 @@ public class FarmerDrone extends LivingEntity implements GeoEntity, InventoryCar
 
     @Override
     protected void addAdditionalSaveData(ValueOutput output) {
-        output.putBoolean("IsRunning", this.runner.isRunning());
-        output.putString("SourceCode", this.sourceCode);
-        output.putInt("Line", this.line);
         output.putInt("DelayTicks", this.delayTicks);
         output.putInt("ActionTicks", this.actionTicks);
         output.putInt("RotationInput", this.rotationInput);
@@ -265,14 +224,27 @@ public class FarmerDrone extends LivingEntity implements GeoEntity, InventoryCar
                 .add(Attributes.KNOCKBACK_RESISTANCE, 1.0f);
     }
 
-    public void setSource(String source) {
-        this.sourceCode = source;
-        this.runner.setSource(source);
+    public boolean isActive() {
+        return this.isActive;
+    }
+
+    public void setActive(boolean isActive) {
+        this.isActive = isActive;
+    }
+
+    public void move(String direction, int distance) {
+        switch (direction) {
+            case "LEFT" -> this.move(1.0f, 0, 0, distance);
+            case "RIGHT" -> this.move(-1.0f, 0, 0, distance);
+            case "UP" -> this.move(0, 1.0f, 0, distance);
+            case "DOWN" -> this.move(0, -1.0f, 0, distance);
+            case "FORWARD" -> this.move(0, 0, 1.0f, distance);
+            case "BACKWARD" -> this.move(0, 0, -1.0f, distance);
+        }
     }
 
     public void move(float sideway, float vertical , float forward, int distance) {
-        sideway *= -1;
-        this.movementInput = new Vec3(sideway, vertical, forward).normalize();
+        this.movementInput = new Vec3(sideway, vertical, forward);
         this.actionTicks = distance * 4;
         this.action = Action.MOVE;
         this.movement = (sideway != 0) ? (sideway > 0 ? Movement.LEFT : Movement.RIGHT) :
@@ -286,6 +258,7 @@ public class FarmerDrone extends LivingEntity implements GeoEntity, InventoryCar
     }
 
     @Override
+    @NullMarked
     public SimpleContainer getInventory() {
         return this.inventory;
     }

@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "farmer-drones:block/server", "y": 0 },
+    "facing=east": { "model": "farmer-drones:block/server", "y": 90 },
+    "facing=south": { "model": "farmer-drones:block/server", "y": 180 },
+    "facing=west": { "model": "farmer-drones:block/server", "y": 270 }
+  }
+}

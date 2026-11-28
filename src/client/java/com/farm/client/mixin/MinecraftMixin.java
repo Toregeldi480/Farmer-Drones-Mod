@@ -15,9 +15,6 @@ public abstract class MinecraftMixin implements MinecraftAccessor {
     @Unique
     private FileManager fileManager;
 
-    @Unique
-    private Minecraft minecraft;
-
     @Inject(method = "<init>", at = @At("TAIL"))
     public void init(GameConfig gameConfig, CallbackInfo ci) {
         this.fileManager = new FileManager((Minecraft) (Object) this);

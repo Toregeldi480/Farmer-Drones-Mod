@@ -16,15 +16,13 @@ import net.minecraft.client.input.KeyEvent;
 import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.jspecify.annotations.NullMarked;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 
 public class LaptopEditScreen extends Screen {
-    private static final Logger log = LoggerFactory.getLogger(LaptopEditScreen.class);
     private Component EDITOR_FILENAME = Component.empty();
     private Layout layout = Layout.NORMAL;
     private MultiLineEditBox editor;
@@ -51,6 +49,7 @@ public class LaptopEditScreen extends Screen {
         drawBody();
     }
 
+    @NullMarked
     public void extractRenderState(final GuiGraphicsExtractor graphics, final int mouseX, final int mouseY, final float a) {
         super.extractRenderState(graphics, mouseX, mouseY, a);
         if (editorWidth > 0) {
@@ -148,8 +147,8 @@ public class LaptopEditScreen extends Screen {
 //    }
 
     private class FileExplorerList extends ObjectSelectionList<FileExplorerList.Entry> {
-        private int width;
-        private Path currentFilePath;
+        private final int width;
+        private final Path currentFilePath;
 
         public FileExplorerList(final Minecraft minecraft, Path currentFilePath, List<Path> files, int width, int height, int x, int y, int itemHeight) {
             super(minecraft, width, height, y, itemHeight);
@@ -163,7 +162,7 @@ public class LaptopEditScreen extends Screen {
             }
 
             if (files != null) {
-                files.stream().filter(p -> Files.isDirectory(p)).forEach(resource -> {
+                files.stream().filter(Files::isDirectory).forEach(resource -> {
                     FileExplorerList.Entry entry = new FileExplorerList.Entry(resource.getFileName().toString() + "/", resource);
                     this.addEntry(entry);
                     if (this.currentFilePath != null && this.currentFilePath.equals(resource)) {
@@ -189,8 +188,8 @@ public class LaptopEditScreen extends Screen {
         }
 
         class Entry extends ObjectSelectionList.Entry<FileExplorerList.Entry> {
-            private String filename;
-            private Path path;
+            private final String filename;
+            private final Path path;
 
             public Entry(String filename, Path path) {
                 super();
@@ -213,6 +212,7 @@ public class LaptopEditScreen extends Screen {
                 }
             }
 
+            @NullMarked
             public boolean mouseClicked(final MouseButtonEvent event, final boolean doubleClick) {
                 if (doubleClick) {
                     this.select();
@@ -235,6 +235,7 @@ public class LaptopEditScreen extends Screen {
             }
 
             @Override
+            @NullMarked
             public Component getNarration() {
                 return Component.literal("file");
             }

@@ -1,6 +1,7 @@
 package com.farm.init;
 
 import com.farm.FarmerDrones;
+import com.farm.block.ServerBlock;
 import com.farm.block.LaptopBlock;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -15,6 +16,12 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import java.util.function.Function;
 
 public class ModBlocks {
+    public static final Block SERVER = register(
+            ModBlockItemIds.SERVER,
+            ServerBlock::new,
+            BlockBehaviour.Properties.of().sound(SoundType.WOOD)
+    );
+
     public static final Block LAPTOP = register(
             ModBlockItemIds.LAPTOP,
             LaptopBlock::new,

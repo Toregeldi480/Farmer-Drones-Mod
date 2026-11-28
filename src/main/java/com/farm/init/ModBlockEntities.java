@@ -2,6 +2,7 @@ package com.farm.init;
 
 import com.farm.FarmerDrones;
 import com.farm.block.entity.LaptopBlockEntity;
+import com.farm.block.entity.ServerBlockEntity;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -11,6 +12,12 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 
 public class ModBlockEntities {
+    public static final BlockEntityType<ServerBlockEntity> SERVER_BLOCK_ENTITY = register(
+            "server",
+            ServerBlockEntity::new,
+            ModBlocks.SERVER
+    );
+
     public static final BlockEntityType<LaptopBlockEntity> LAPTOP_BLOCK_ENTITY = register(
             "laptop",
             LaptopBlockEntity::new,
